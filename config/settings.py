@@ -21,6 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_elasticsearch_dsl',
+
     'shop',
 ]
 
@@ -85,6 +87,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+ELASTICSEARCH_DSL={
+    'default': {
+        'hosts': config('ELASTICSEARCH_HOST_PORT')
+    },
+}
+
 
 AUTH_USER_MODEL = 'shop.User'
 
