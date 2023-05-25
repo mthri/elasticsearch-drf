@@ -1,3 +1,5 @@
+from functools import cached_property
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -5,6 +7,20 @@ from django.utils.translation import gettext_lazy as _
 
 class User(AbstractUser):
     email = models.EmailField(verbose_name=_('آدرس ایمیل'), unique=True)
+
+    @cached_property
+    def is_support_user(self) -> bool:
+        if self.groups.filter(name='support').exists():
+            return True
+        else:
+            return False
+
+    @cached_property
+    def is_sale_user(self) -> bool:
+        if self.groups.filter(name='sale').exists():
+            return True
+        else:
+            return False
 
 
 class Car(models.Model):
