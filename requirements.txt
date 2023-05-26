@@ -2,3 +2,4 @@ Django==4.2.1
 PyMySQL==1.0.3
 python-decouple==3.8
 django-elasticsearch-dsl==7.3
+djangorestframework==3.14.0

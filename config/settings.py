@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_elasticsearch_dsl',
+    'rest_framework',
 
     'shop',
 ]
@@ -92,6 +93,14 @@ ELASTICSEARCH_DSL={
     'default': {
         'hosts': config('ELASTICSEARCH_HOST_PORT')
     },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
 }
 
 
