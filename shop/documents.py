@@ -12,6 +12,7 @@ class CarDocument(Document):
     class Django:
         model = Car
         fields = [
+            'id',
             'name',
             'num_cylinders',
             'num_seats',
