@@ -44,7 +44,12 @@ To run the application, please follow these steps:
    python3 manage.py init_group
    ```
 
-8. Start the development server:
+8. Rebuild the elasticsearch search index:
+   ```bash
+   python3 manage.py search_index --rebuild
+   ```
+
+9. Start the development server:
    ```bash
    python3 manage.py runserver
    ```
